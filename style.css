@@ -96,9 +96,8 @@ a:hover {
     }
 
 
-
-    ul {
-        position: fixed;
+.topnav {
+        position:absolute;
         height: 100vh;
         width: 100%;
         background: #01060ae5;
@@ -107,7 +106,6 @@ a:hover {
         text-align: center;
         transition: all .5s;
     }
-
     nav ul li {
         display: block;
         margin: 50px 0;
@@ -167,4 +165,53 @@ section {
 }
 .enjoy{
     color:#7B0400;
+}
+footer{
+    width: 100%;
+    background-color: #222222;
+    height:auto;
+    color: whitesmoke;
+}
+footer img{
+    width: 40%;
+    
+}
+.footer-wrapper{
+    position: relative;
+    margin-left:55%;
+}
+
+
+
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+.slider ul {
+    display: flex;
+    list-style: none;
+    transition: all 1s ease;
+}
+
+.slider {
+  width:80%;
+  height: 250px;
+  overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+  box-shadow: 3px 10px 15px 0px rgba(0,0,0,0.4);
+}
+
+.slider img {
+  width: 450px;
+  height: 250px;
+  border-radius: 3px;
 }
