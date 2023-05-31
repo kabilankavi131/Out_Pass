@@ -6,10 +6,18 @@
     <link rel="stylesheet" type="text/css" href="css/my-login.cs">
     <script>
         function login() {
-            Swal.fire("Log in successfull");
+            Swal.fire(
+                'Login Succesfully 😎',
+                '',
+                'success'
+            )
         }
         function failure() {
-            Swal.fire("User Not Found :(");
+            Swal.fire(
+                'User not found 😕',
+                'Kindly Register !',
+                'error'
+            )
         }
     </script>
     <title>Validation</title>
@@ -18,19 +26,37 @@
 <body>
     <?php
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $mysqli = new mysqli("localhost", "root", "", "kitoutpass");
-    $name = "select  `name` from `registration` where `email`='$email'";
-    $result = $mysqli->query($name);
-    if (mysqli_num_rows($result) == 1) {
-        while ($row = $result->fetch_assoc()) {
-            $user = $row['name'];
-            echo '<script type="text/javascript">login();</script>';
-        }
+    $upassword = $_POST['password'];
+    $host = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'kitoutpass';
+    $passw = '';
+    $mail = '';
+    $connection = mysqli_connect($host, $username, $password, $database);
+    if (!$connection) {
+        die('Connection error: ' . mysqli_connect_error());
     } else {
-        include 'register.html';
-    }
-    echo '<script type="text/javascript">failure();</script>';
+        $query = "select  `name`,`email`,`password` from `registration` where `email`='$email'";
+        $result = mysqli_query($connection, $query);
+        if (!$result) {
+            die('Query error: ' . mysqli_error($connection));
+        } else {
+            $row_count = mysqli_num_rows($result);
+            $row = mysqli_fetch_assoc($result);
+            $mail = $row['email'];
+            $passw = $row['password'];
+            if (($email == $mail) && ($passw == $upassword)) {
+                echo '<script type="text/javascript">login();</script>';
+                include 'format.html';
+            } else {
+                include 'register.html';
+                echo '<script type="text/javascript">failure();</script>';
+            }
+
+        }
+    } // For query validation
+    // For Connection
     ?>
 </body>
 

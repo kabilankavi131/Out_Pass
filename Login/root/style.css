@@ -74,7 +74,7 @@ a:hover {
 
 @media (max-width: 952px) {
     label.logo {
-        font-size: 30px;
+        font-size:15px;
         padding-left: 50px;
     }
 
@@ -169,8 +169,6 @@ footer img{
     width: 40%;
     margin-left:5%;
     margin-top:-10%;
-    
-    
 }
 .footer-wrapper{
     position: relative;
@@ -210,4 +208,7 @@ footer img{
   width: 450px;
   height: 250px;
   border-radius: 3px;
+}
+.burger{
+    margin-top: 20%;
 }
