@@ -3,7 +3,7 @@
 
 <head>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <link rel="stylesheet" type="text/css" href="../Style/my-login.css">
+    <link rel="stylesheet" type="text/css" href="css/my-login.cs">
     <script>
         function login() {
             Swal.fire(
@@ -47,15 +47,16 @@
             $mail = $row['email'];
             $passw = $row['password'];
             if (($email == $mail) && ($passw == $upassword)) {
-                include '../Sub_Assets/format.html';
                 echo '<script type="text/javascript">login();</script>';
+                include 'format.html';
             } else {
-                include '../Sub_Assets/create.html';
+                include 'register.html';
                 echo '<script type="text/javascript">failure();</script>';
             }
 
         }
-    }
+    } // For query validation
+    // For Connection
     ?>
 </body>
 

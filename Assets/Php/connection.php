@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" type="text/css" href="css/my-login.cs">
@@ -21,6 +22,7 @@
     </script>
     <title>Validation</title>
 </head>
+
 <body>
 <?php
 $uname=$_POST['username'];
@@ -31,8 +33,7 @@ $query="insert into `registration` values('$uname','$email','$password')";
 try{
 $execution=mysqli_query($con,$query);
 if($execution){
-   // echo __DIR__;
-    include 'C:\xampp\htdocs\Hostel_Pass\index.html';
+    include 'index.html';
     echo '<script type="text/javascript">register();</script>';
 }
 }
@@ -40,5 +41,7 @@ catch(Exception $e){
     echo '<script type="text/javascript">failure();</script>';
 }
 ?>
+
 </body>
+
 </html>
